@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#4CAD4E</color>
+    <color name="colorPrimaryDark">#47A149</color>
+    <color name="colorAccent">#56C359</color>
+    <color name="colorLight">#FFFFFF</color>
+
+    <!--dark theme color-->
+    <color name="colorStatusBarDark">#101D24</color>
+    <color name="colorToolbarDark">#222D36</color>
+    <color name="colorAccentDark">#56C359</color>
+    <color name="colorBackgroundDark">#101D24</color>
+
+    <color name="colorBlue">#2196F3</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorPurple">#9c27b0</color>
+
+    <color name="colorNativeBackgroundLight">#EAEAEA</color>
+    <color name="colorNativeBackgroundDark">#424242</color>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ad_notification_view"
+    android:layout_width="@dimen/gnt_ad_indicator_width"
+    android:layout_height="@dimen/gnt_ad_indicator_height"
+    android:background="@drawable/gnt_ad_icon"
+    android:gravity="center"
+    android:text="@string/txt_ad"
+    android:textColor="@color/gnt_white"
+    android:textSize="@dimen/gnt_ad_indicator_text_size"
+    android:textStyle="bold" />

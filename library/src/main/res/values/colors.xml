@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_native_background_light">#FFFFFF</color>
+    <color name="color_native_background_dark">#101D24</color>
+
+    <color name="gnt_test_background_color">#00F4F4F4</color>
+    <color name="gnt_test_background_color_2">#00A3A3A3</color>
+    <color name="gnt_black">#000000</color>
+    <color name="gnt_white">#FFFFFF</color>
+    <color name="gnt_red">#FF0000</color>
+    <color name="gnt_green">#00FF00</color>
+    <color name="gnt_blue">#2196F3</color>
+    <color name="gnt_ad_green">#3A6728</color>
+    <color name="gnt_gray">#808080</color>
+    <color name="gnt_outline">#E0E0E0</color>
+    <color name="gnt_ad_yellow">#FBB828</color>
+    <color name="gnt_ad_grey">#939393</color>
+    <color name="btn_ad_button">#1A2196F3</color>
+    <color name="applovin_button_color">#4385F7</color>
+    <color name="applovin_dark_primary_text_color">#FFFFFF</color>
+    <color name="applovin_dark_secondary_text_color">#B8BCBE</color>
+
+</resources>
