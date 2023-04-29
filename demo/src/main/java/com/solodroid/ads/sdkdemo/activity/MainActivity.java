@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -49,6 +50,7 @@ import com.solodroid.ads.sdkdemo.database.SharedPref;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "MainActivity";
     Toolbar toolbar;
     AdNetwork.Initialize adNetwork;
     BannerAd.Builder bannerAd;
@@ -196,11 +198,18 @@ public class MainActivity extends AppCompatActivity {
                 .setIronSourceInterstitialId(Constant.IRONSOURCE_INTERSTITIAL_ID)
                 .setWortiseInterstitialId(Constant.WORTISE_INTERSTITIAL_ID)
                 .setInterval(Constant.INTERSTITIAL_AD_INTERVAL)
-                .build();
+                .build(() -> {
+                    Log.d(TAG, "onAdDismissed");
+                });
     }
 
     private void showInterstitialAd() {
-        interstitialAd.show();
+        interstitialAd.show(() -> {
+            Log.d(TAG, "onAdShowed");
+        }, () -> {
+            Log.d(TAG, "onAdDismissed");
+        });
+
     }
 
     private void loadNativeAd() {
@@ -250,12 +259,14 @@ public class MainActivity extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         appOpenAdBuilder.destroyOpenAd();
+        bannerAd.destroyAndDetachBanner();
         ProcessLifecycleOwner.get().getLifecycle().removeObserver(lifecycleObserver);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        bannerAd.loadBannerAd();
     }
 
     public void getAppTheme() {

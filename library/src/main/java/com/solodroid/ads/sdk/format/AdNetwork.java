@@ -35,12 +35,8 @@ import com.unity3d.mediation.InitializationConfiguration;
 import com.unity3d.mediation.UnityMediation;
 import com.unity3d.mediation.errors.SdkInitializationError;
 import com.wortise.ads.WortiseSdk;
-import com.wortise.ads.consent.ConsentManager;
 
 import java.util.Map;
-
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 
 public class AdNetwork {
 
