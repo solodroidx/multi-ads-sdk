@@ -1793,9 +1793,12 @@ public class InterstitialAd {
                     }
                     counter = 1;
                 } else {
+                    onInterstitialAdDismissedListener.onInterstitialAdDismissed();
                     counter++;
                 }
                 Log.d(TAG, "Current counter : " + counter);
+            } else {
+                onInterstitialAdDismissedListener.onInterstitialAdDismissed();
             }
         }
 
@@ -1927,6 +1930,8 @@ public class InterstitialAd {
                         //do nothing
                         break;
                 }
+            } else {
+                onInterstitialAdDismissedListener.onInterstitialAdDismissed();
             }
         }
 
