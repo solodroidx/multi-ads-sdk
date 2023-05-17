@@ -74,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
         getAppTheme();
         setContentView(R.layout.activity_main);
 
-        ProcessLifecycleOwner.get().getLifecycle().addObserver(lifecycleObserver);
+        if (Constant.FORCE_TO_SHOW_APP_OPEN_AD_ON_START) {
+            ProcessLifecycleOwner.get().getLifecycle().addObserver(lifecycleObserver);
+        }
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         btnInterstitial.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), SecondActivity.class));
             showInterstitialAd();
-            bannerAd.destroyAndDetachBanner();
+            destroyBannerAd();
         });
 
         btnSelectAds = findViewById(R.id.btn_select_ads);
@@ -258,9 +260,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        appOpenAdBuilder.destroyOpenAd();
-        bannerAd.destroyAndDetachBanner();
-        ProcessLifecycleOwner.get().getLifecycle().removeObserver(lifecycleObserver);
+        destroyBannerAd();
+        destroyAppOpenAd();
+        Constant.isAppOpen = false;
     }
 
     @Override
@@ -392,12 +394,24 @@ public class MainActivity extends AppCompatActivity {
         dialog.setView(view);
         dialog.setCancelable(false);
         dialog.setPositiveButton("Exit", (dialogInterface, i) -> {
-            bannerAd.destroyAndDetachBanner();
-            appOpenAdBuilder.destroyOpenAd();
             super.onBackPressed();
+            destroyBannerAd();
+            destroyAppOpenAd();
+            Constant.isAppOpen = false;
         });
         dialog.setNegativeButton("Cancel", null);
         dialog.show();
+    }
+
+    private void destroyBannerAd() {
+        bannerAd.destroyAndDetachBanner();
+    }
+
+    private void destroyAppOpenAd() {
+        if (Constant.FORCE_TO_SHOW_APP_OPEN_AD_ON_START) {
+            appOpenAdBuilder.destroyOpenAd();
+            ProcessLifecycleOwner.get().getLifecycle().removeObserver(lifecycleObserver);
+        }
     }
 
 }

@@ -1,8 +1,17 @@
 package com.solodroid.ads.sdkdemo.activity;
 
+import static com.solodroid.ads.sdk.util.Constant.ADMOB;
+import static com.solodroid.ads.sdk.util.Constant.AD_STATUS_ON;
+import static com.solodroid.ads.sdk.util.Constant.APPLOVIN;
+import static com.solodroid.ads.sdk.util.Constant.APPLOVIN_MAX;
+import static com.solodroid.ads.sdk.util.Constant.GOOGLE_AD_MANAGER;
+import static com.solodroid.ads.sdk.util.Constant.WORTISE;
+
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -12,6 +21,7 @@ import com.solodroid.ads.sdk.format.AdNetwork;
 import com.solodroid.ads.sdk.format.AppOpenAd;
 import com.solodroid.ads.sdkdemo.BuildConfig;
 import com.solodroid.ads.sdkdemo.R;
+import com.solodroid.ads.sdkdemo.application.MyApplication;
 import com.solodroid.ads.sdkdemo.callback.CallbackConfig;
 import com.solodroid.ads.sdkdemo.data.Constant;
 import com.solodroid.ads.sdkdemo.database.SharedPref;
@@ -24,6 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+@SuppressWarnings("ConstantConditions")
 public class ActivitySplash extends AppCompatActivity {
 
     private static final String TAG = "ActivitySplash";
@@ -39,7 +50,52 @@ public class ActivitySplash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         sharedPref = new SharedPref(this);
         initAds();
-        requestConfig();
+
+        if (Constant.AD_STATUS.equals(AD_STATUS_ON) && Constant.OPEN_ADS_ON_START) {
+            if (!Constant.FORCE_TO_SHOW_APP_OPEN_AD_ON_START) {
+                new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                    switch (Constant.AD_NETWORK) {
+                        case ADMOB:
+                            if (!Constant.ADMOB_APP_OPEN_AD_ID.equals("0")) {
+                                ((MyApplication) getApplication()).showAdIfAvailable(ActivitySplash.this, this::requestConfig);
+                            } else {
+                                requestConfig();
+                            }
+                            break;
+                        case GOOGLE_AD_MANAGER:
+                            if (!Constant.GOOGLE_AD_MANAGER_APP_OPEN_AD_ID.equals("0")) {
+                                ((MyApplication) getApplication()).showAdIfAvailable(ActivitySplash.this, this::requestConfig);
+                            } else {
+                                requestConfig();
+                            }
+                            break;
+                        case APPLOVIN:
+                        case APPLOVIN_MAX:
+                            if (!Constant.APPLOVIN_APP_OPEN_AP_ID.equals("0")) {
+                                ((MyApplication) getApplication()).showAdIfAvailable(ActivitySplash.this, this::requestConfig);
+                            } else {
+                                requestConfig();
+                            }
+                            break;
+                        case WORTISE:
+                            if (!Constant.WORTISE_APP_OPEN_AD_ID.equals("0")) {
+                                ((MyApplication) getApplication()).showAdIfAvailable(ActivitySplash.this, this::requestConfig);
+                            } else {
+                                requestConfig();
+                            }
+                            break;
+                        default:
+                            requestConfig();
+                            break;
+                    }
+                }, DELAY_PROGRESS);
+            } else {
+                requestConfig();
+            }
+        } else {
+            requestConfig();
+        }
+
     }
 
     private void requestConfig() {
@@ -95,7 +151,7 @@ public class ActivitySplash extends AppCompatActivity {
     }
 
     private void loadOpenAds() {
-        if (Constant.OPEN_ADS_ON_START) {
+        if (Constant.FORCE_TO_SHOW_APP_OPEN_AD_ON_START && Constant.OPEN_ADS_ON_START) {
             appOpenAdBuilder = new AppOpenAd.Builder(this)
                     .setAdStatus(Constant.AD_STATUS)
                     .setAdNetwork(Constant.AD_NETWORK)

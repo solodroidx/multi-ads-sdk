@@ -56,6 +56,7 @@ public class Constant {
 
     public static boolean isAppOpen = false;
 
+    public static final boolean FORCE_TO_SHOW_APP_OPEN_AD_ON_START = true;
     public static final boolean OPEN_ADS_ON_START = true;
     public static final boolean OPEN_ADS_ON_RESUME = true;
 
