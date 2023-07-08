@@ -333,6 +333,11 @@ public class MediumRectangleAd {
                             }
 
                             @Override
+                            public void onBannerShown(BannerView bannerAdView) {
+
+                            }
+
+                            @Override
                             public void onBannerClick(BannerView bannerView) {
 
                             }
@@ -660,6 +665,11 @@ public class MediumRectangleAd {
                             public void onBannerLoaded(BannerView bannerView) {
                                 unityAdView.setVisibility(View.VISIBLE);
                                 Log.d("Unity_banner", "ready");
+                            }
+
+                            @Override
+                            public void onBannerShown(BannerView bannerAdView) {
+
                             }
 
                             @Override
