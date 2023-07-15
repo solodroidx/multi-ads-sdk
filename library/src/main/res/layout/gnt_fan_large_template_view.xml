@@ -66,15 +66,15 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="@dimen/gnt_native_icon_size"
+                    android:layout_height="@dimen/gnt_native_icon_size"
                     card_view:cardCornerRadius="@dimen/corner_radius"
                     card_view:cardElevation="0dp">
 
                     <com.facebook.ads.MediaView
                         android:id="@+id/native_ad_icon"
-                        android:layout_width="64dp"
-                        android:layout_height="64dp" />
+                        android:layout_width="@dimen/gnt_native_icon_size"
+                        android:layout_height="@dimen/gnt_native_icon_size" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -97,14 +97,6 @@
                         android:textSize="@dimen/post_primary_font_size"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/native_ad_social_context"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:lines="1"
-                        android:text="" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -117,7 +109,7 @@
                 <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:layout_constraintDimensionRatio="H,1:1"
+                    app:layout_constraintDimensionRatio="H,16:9"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -139,6 +131,21 @@
                 </RelativeLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_post_padding_medium"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/native_ad_social_context"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:text="" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

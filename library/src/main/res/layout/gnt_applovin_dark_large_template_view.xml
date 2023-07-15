@@ -74,8 +74,8 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
+                        android:layout_width="@dimen/gnt_native_icon_size"
+                        android:layout_height="@dimen/gnt_native_icon_size"
                         card_view:cardCornerRadius="@dimen/corner_radius"
                         card_view:cardElevation="0dp">
 
@@ -98,7 +98,6 @@
                             android:id="@+id/title_text_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
                             android:ellipsize="end"
                             android:fontFamily="@font/custom_font"
                             android:gravity="start"
@@ -108,17 +107,6 @@
                             android:textColor="@color/applovin_dark_primary_text_color"
                             android:textSize="@dimen/post_primary_font_size"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/body_text_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/custom_font"
-                            android:maxLines="2"
-                            android:text=""
-                            android:textColor="@color/applovin_dark_secondary_text_color" />
 
                         <RatingBar
                             android:id="@+id/rating_bar"
@@ -144,7 +132,7 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        app:layout_constraintDimensionRatio="H,1:1"
+                        app:layout_constraintDimensionRatio="H,16:9"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
@@ -166,6 +154,24 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_post_padding_medium"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/body_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/custom_font"
+                        android:maxLines="2"
+                        android:text=""
+                        android:textColor="@color/applovin_dark_secondary_text_color" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <Button
@@ -173,7 +179,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="@dimen/item_post_padding_small"
                 android:fontFamily="@font/custom_font"
                 android:textColor="@color/gnt_white"
                 android:textStyle="bold" />

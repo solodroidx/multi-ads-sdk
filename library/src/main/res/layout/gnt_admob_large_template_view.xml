@@ -73,8 +73,8 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
+                            android:layout_width="@dimen/gnt_native_icon_size"
+                            android:layout_height="@dimen/gnt_native_icon_size"
                             card_view:cardCornerRadius="@dimen/corner_radius"
                             card_view:cardElevation="0dp">
 
@@ -123,23 +123,6 @@
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/secondary"
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:ellipsize="end"
-                                android:maxLines="1"
-                                android:text=""
-                                android:visibility="gone" />
-
-                            <TextView
-                                android:id="@+id/body"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:maxLines="2"
-                                android:text="" />
-
                         </LinearLayout>
 
                     </LinearLayout>
@@ -152,7 +135,7 @@
                         <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            app:layout_constraintDimensionRatio="H,1:1"
+                            app:layout_constraintDimensionRatio="H,16:9"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -173,6 +156,31 @@
                         </RelativeLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/item_post_padding_medium"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/secondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text=""
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            android:text="" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
