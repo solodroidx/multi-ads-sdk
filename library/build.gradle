@@ -37,7 +37,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-basement:18.2.0'
 
     //Primary Ad Networks
-    implementation 'com.google.android.gms:play-services-ads:22.1.0'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'
     implementation 'com.startapp:inapp-sdk:4.11.0'
     implementation 'com.applovin:applovin-sdk:11.10.1'
     implementation 'com.unity3d.ads:unity-ads:4.8.0'
