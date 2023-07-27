@@ -67,6 +67,7 @@ import java.util.concurrent.TimeUnit;
 
 public class InterstitialAd {
 
+    @SuppressWarnings("deprecation")
     public static class Builder {
 
         private static final String TAG = "AdNetwork";

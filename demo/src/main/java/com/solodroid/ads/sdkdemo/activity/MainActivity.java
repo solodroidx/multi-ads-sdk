@@ -24,6 +24,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -43,6 +44,12 @@ import com.solodroid.ads.sdk.format.InterstitialAd;
 import com.solodroid.ads.sdk.format.MediumRectangleAd;
 import com.solodroid.ads.sdk.format.NativeAd;
 import com.solodroid.ads.sdk.format.NativeAdView;
+import com.solodroid.ads.sdk.format.RewardedAd;
+import com.solodroid.ads.sdk.format.RewardedVideoAd;
+import com.solodroid.ads.sdk.util.OnRewardedAdCompleteListener;
+import com.solodroid.ads.sdk.util.OnRewardedAdDismissedListener;
+import com.solodroid.ads.sdk.util.OnRewardedAdErrorListener;
+import com.solodroid.ads.sdk.util.OnRewardedAdLoadedListener;
 import com.solodroid.ads.sdkdemo.BuildConfig;
 import com.solodroid.ads.sdkdemo.R;
 import com.solodroid.ads.sdkdemo.data.Constant;
@@ -56,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
     BannerAd.Builder bannerAd;
     MediumRectangleAd.Builder mediumRectangleAd;
     InterstitialAd.Builder interstitialAd;
+    RewardedAd.Builder rewardedAd;
     NativeAd.Builder nativeAd;
     NativeAdView.Builder nativeAdView;
     SwitchMaterial switchMaterial;
     SharedPref sharedPref;
     Button btnInterstitial;
+    Button btnRewarded;
     Button btnSelectAds;
     Button btnNativeAdStyle;
     LinearLayout nativeAdViewContainer;
@@ -88,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         loadOpenAds();
         loadBannerAd();
         loadInterstitialAd();
+        loadRewardedAd();
 
         nativeAdViewContainer = findViewById(R.id.native_ad);
         setNativeAdStyle(nativeAdViewContainer);
@@ -99,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
             showInterstitialAd();
             destroyBannerAd();
         });
+
+        btnRewarded = findViewById(R.id.btn_rewarded);
+        btnRewarded.setOnClickListener(view -> showRewardedAd());
 
         btnSelectAds = findViewById(R.id.btn_select_ads);
         btnSelectAds.setOnClickListener(v -> showAdChooser());
@@ -203,6 +216,51 @@ public class MainActivity extends AppCompatActivity {
                 .build(() -> {
                     Log.d(TAG, "onAdDismissed");
                 });
+    }
+
+    private void loadRewardedAd() {
+        rewardedAd = new RewardedAd.Builder(this)
+                .setAdStatus(Constant.AD_STATUS)
+                .setMainAds(Constant.AD_NETWORK)
+                .setBackupAds(Constant.BACKUP_AD_NETWORK)
+                .setAdMobRewardedId(Constant.ADMOB_REWARDED_ID)
+                .setAdManagerRewardedId(Constant.GOOGLE_AD_MANAGER_REWARDED_ID)
+                .setFanRewardedId(Constant.FAN_REWARDED_ID)
+                .setUnityRewardedId(Constant.UNITY_REWARDED_ID)
+                .setApplovinMaxRewardedId(Constant.APPLOVIN_MAX_REWARDED_ID)
+                .setApplovinDiscRewardedZoneId(Constant.APPLOVIN_DISC_REWARDED_ZONE_ID)
+                .setIronSourceRewardedId(Constant.IRONSOURCE_REWARDED_ID)
+                .setWortiseRewardedId(Constant.WORTISE_REWARDED_ID)
+                .build(new OnRewardedAdCompleteListener() {
+                    @Override
+                    public void onRewardedAdComplete() {
+                        Toast.makeText(getApplicationContext(), "Rewarded complete", Toast.LENGTH_SHORT).show();
+                    }
+                }, new OnRewardedAdDismissedListener() {
+                    @Override
+                    public void onRewardedAdDismissed() {
+
+                    }
+                });
+    }
+
+    private void showRewardedAd() {
+        rewardedAd.show(new OnRewardedAdCompleteListener() {
+            @Override
+            public void onRewardedAdComplete() {
+                Toast.makeText(getApplicationContext(), "Rewarded complete", Toast.LENGTH_SHORT).show();
+            }
+        }, new OnRewardedAdDismissedListener() {
+            @Override
+            public void onRewardedAdDismissed() {
+
+            }
+        }, new OnRewardedAdErrorListener() {
+            @Override
+            public void onRewardedAdError() {
+                Toast.makeText(getApplicationContext(), "Rewarded error", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void showInterstitialAd() {

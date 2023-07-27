@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+    namespace 'com.solodroid.ads.sdkdemo'
     compileSdk 33
     defaultConfig {
         applicationId "com.solodroid.ads.sdkdemo"

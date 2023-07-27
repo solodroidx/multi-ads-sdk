@@ -65,6 +65,14 @@
                 android:textColor="@color/gnt_white" />
 
             <Button
+                android:id="@+id/btn_rewarded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_show_rewarded_ad"
+                android:textAllCaps="false"
+                android:textColor="@color/gnt_white" />
+
+            <Button
                 android:id="@+id/btn_select_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
