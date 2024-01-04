@@ -330,52 +330,52 @@ public class RewardedAd {
                         applovinMaxRewardedAd.loadAd();
                         applovinMaxRewardedAd.setListener(new MaxRewardedAdListener() {
                             @Override
-                            public void onUserRewarded(MaxAd maxAd, MaxReward maxReward) {
+                            public void onUserRewarded(@NonNull MaxAd maxAd, @NonNull MaxReward maxReward) {
                                 onComplete.onRewardedAdComplete();
                                 Log.d(TAG, "[" + mainAds + "] " + "rewarded ad complete");
                             }
 
                             @Override
-                            public void onRewardedVideoStarted(MaxAd maxAd) {
+                            public void onRewardedVideoStarted(@NonNull MaxAd maxAd) {
                                 Log.d(TAG, "[" + mainAds + "] " + "rewarded video started");
                             }
 
                             @Override
-                            public void onRewardedVideoCompleted(MaxAd maxAd) {
+                            public void onRewardedVideoCompleted(@NonNull MaxAd maxAd) {
                                 onComplete.onRewardedAdComplete();
                                 Log.d(TAG, "[" + mainAds + "] " + "rewarded video complete");
                             }
 
                             @Override
-                            public void onAdLoaded(MaxAd maxAd) {
+                            public void onAdLoaded(@NonNull MaxAd maxAd) {
                                 Log.d(TAG, "[" + mainAds + "] " + "rewarded ad loaded");
                             }
 
                             @Override
-                            public void onAdDisplayed(MaxAd maxAd) {
+                            public void onAdDisplayed(@NonNull MaxAd maxAd) {
 
                             }
 
                             @Override
-                            public void onAdHidden(MaxAd maxAd) {
+                            public void onAdHidden(@NonNull MaxAd maxAd) {
                                 loadRewardedAd(onComplete, onDismiss);
                                 onComplete.onRewardedAdComplete();
                                 Log.d(TAG, "[" + mainAds + "] " + "rewarded ad hidden");
                             }
 
                             @Override
-                            public void onAdClicked(MaxAd maxAd) {
+                            public void onAdClicked(@NonNull MaxAd maxAd) {
 
                             }
 
                             @Override
-                            public void onAdLoadFailed(String s, MaxError maxError) {
+                            public void onAdLoadFailed(@NonNull String s, @NonNull MaxError maxError) {
                                 loadRewardedBackupAd(onComplete, onDismiss);
                                 Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + maxError.getMessage() + ", try to load backup ad: " + backupAds);
                             }
 
                             @Override
-                            public void onAdDisplayFailed(MaxAd maxAd, MaxError maxError) {
+                            public void onAdDisplayFailed(@NonNull MaxAd maxAd, @NonNull MaxError maxError) {
                                 loadRewardedBackupAd(onComplete, onDismiss);
                                 Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + maxError.getMessage() + ", try to load backup ad: " + backupAds);
                             }
@@ -649,51 +649,51 @@ public class RewardedAd {
                         applovinMaxRewardedAd = MaxRewardedAd.getInstance(applovinMaxRewardedId, activity);
                         applovinMaxRewardedAd.setListener(new MaxRewardedAdListener() {
                             @Override
-                            public void onUserRewarded(MaxAd maxAd, MaxReward maxReward) {
+                            public void onUserRewarded(@NonNull MaxAd maxAd, @NonNull MaxReward maxReward) {
                                 onComplete.onRewardedAdComplete();
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "user earn rewards");
                             }
 
                             @Override
-                            public void onRewardedVideoStarted(MaxAd maxAd) {
+                            public void onRewardedVideoStarted(@NonNull MaxAd maxAd) {
 
                             }
 
                             @Override
-                            public void onRewardedVideoCompleted(MaxAd maxAd) {
+                            public void onRewardedVideoCompleted(@NonNull MaxAd maxAd) {
                                 onComplete.onRewardedAdComplete();
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded video complete");
                             }
 
                             @Override
-                            public void onAdLoaded(MaxAd maxAd) {
+                            public void onAdLoaded(@NonNull MaxAd maxAd) {
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "rewarded ad loaded");
                             }
 
                             @Override
-                            public void onAdDisplayed(MaxAd maxAd) {
+                            public void onAdDisplayed(@NonNull MaxAd maxAd) {
 
                             }
 
                             @Override
-                            public void onAdHidden(MaxAd maxAd) {
+                            public void onAdHidden(@NonNull MaxAd maxAd) {
                                 loadRewardedAd(onComplete, onDismiss);
                                 onComplete.onRewardedAdComplete();
                                 Log.d(TAG, "[" + backupAds + "] [backup]" + "rewarded ad hidden");
                             }
 
                             @Override
-                            public void onAdClicked(MaxAd maxAd) {
+                            public void onAdClicked(@NonNull MaxAd maxAd) {
 
                             }
 
                             @Override
-                            public void onAdLoadFailed(String s, MaxError maxError) {
+                            public void onAdLoadFailed(@NonNull String s, @NonNull MaxError maxError) {
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + maxError.getMessage() + ", try to load backup ad: " + backupAds);
                             }
 
                             @Override
-                            public void onAdDisplayFailed(MaxAd maxAd, MaxError maxError) {
+                            public void onAdDisplayFailed(@NonNull MaxAd maxAd, @NonNull MaxError maxError) {
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + maxError.getMessage() + ", try to load backup ad: " + backupAds);
                             }
                         });

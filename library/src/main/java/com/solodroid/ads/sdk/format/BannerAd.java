@@ -65,6 +65,7 @@ import com.wortise.ads.AdError;
 
 public class BannerAd {
 
+    @SuppressWarnings("deprecation")
     public static class Builder {
 
         private static final String TAG = "AdNetwork";
@@ -376,43 +377,43 @@ public class BannerAd {
                         MaxAdView maxAdView = new MaxAdView(appLovinBannerId, activity);
                         maxAdView.setListener(new MaxAdViewAdListener() {
                             @Override
-                            public void onAdExpanded(MaxAd ad) {
+                            public void onAdExpanded(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdCollapsed(MaxAd ad) {
+                            public void onAdCollapsed(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdLoaded(MaxAd ad) {
+                            public void onAdLoaded(@NonNull MaxAd ad) {
                                 appLovinAdView.setVisibility(View.VISIBLE);
                             }
 
                             @Override
-                            public void onAdDisplayed(MaxAd ad) {
+                            public void onAdDisplayed(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdHidden(MaxAd ad) {
+                            public void onAdHidden(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdClicked(MaxAd ad) {
+                            public void onAdClicked(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdLoadFailed(String adUnitId, MaxError error) {
+                            public void onAdLoadFailed(@NonNull String adUnitId, @NonNull MaxError error) {
                                 appLovinAdView.setVisibility(View.GONE);
                                 loadBackupBannerAd();
                             }
 
                             @Override
-                            public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+                            public void onAdDisplayFailed(@NonNull MaxAd ad, @NonNull MaxError error) {
 
                             }
                         });
@@ -738,42 +739,42 @@ public class BannerAd {
                         MaxAdView maxAdView = new MaxAdView(appLovinBannerId, activity);
                         maxAdView.setListener(new MaxAdViewAdListener() {
                             @Override
-                            public void onAdExpanded(MaxAd ad) {
+                            public void onAdExpanded(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdCollapsed(MaxAd ad) {
+                            public void onAdCollapsed(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdLoaded(MaxAd ad) {
+                            public void onAdLoaded(@NonNull MaxAd ad) {
                                 appLovinAdView.setVisibility(View.VISIBLE);
                             }
 
                             @Override
-                            public void onAdDisplayed(MaxAd ad) {
+                            public void onAdDisplayed(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdHidden(MaxAd ad) {
+                            public void onAdHidden(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdClicked(MaxAd ad) {
+                            public void onAdClicked(@NonNull MaxAd ad) {
 
                             }
 
                             @Override
-                            public void onAdLoadFailed(String adUnitId, MaxError error) {
+                            public void onAdLoadFailed(@NonNull String adUnitId, @NonNull MaxError error) {
                                 appLovinAdView.setVisibility(View.GONE);
                             }
 
                             @Override
-                            public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+                            public void onAdDisplayFailed(@NonNull MaxAd ad, @NonNull MaxError error) {
 
                             }
                         });

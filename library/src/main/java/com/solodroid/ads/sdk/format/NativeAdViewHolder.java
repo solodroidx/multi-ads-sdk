@@ -71,6 +71,7 @@ import com.wortise.ads.natives.GoogleNativeAd;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("deprecation")
 public class NativeAdViewHolder extends RecyclerView.ViewHolder {
 
     private static final String TAG = "AdNetwork";
@@ -398,7 +399,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -424,14 +425,14 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                     loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, wortiseNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                     Log.d(TAG, "failed to load Max Native Ad with message : " + error.getMessage() + " and error code : " + error.getCode());
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -797,7 +798,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -821,12 +822,12 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -1193,7 +1194,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -1219,14 +1220,14 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(final @NonNull String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                     loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, appLovinDiscMrecZoneId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                     Log.d(TAG, "failed to load Max Native Ad with message : " + error.getMessage() + " and error code : " + error.getCode());
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -1535,7 +1536,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -1559,12 +1560,12 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -1875,7 +1876,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -1901,14 +1902,14 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                     loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, darkTheme, legacyGDPR, nativeAdStyle, nativeBackgroundLight, nativeBackgroundDark);
                                     Log.d(TAG, "failed to load Max Native Ad with message : " + error.getMessage() + " and error code : " + error.getCode());
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -2179,7 +2180,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -2203,12 +2204,12 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -2479,7 +2480,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -2498,14 +2499,14 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                     loadBackupNativeAd(context, adStatus, placementStatus, backupAdNetwork, adMobNativeId, adManagerNativeId, fanNativeId, appLovinNativeId, darkTheme, legacyGDPR, nativeAdStyle);
                                     Log.d(TAG, "failed to load Max Native Ad with message : " + error.getMessage() + " and error code : " + error.getCode());
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -2773,7 +2774,7 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, context);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxNativeAd != null) {
                                         nativeAdLoader.destroy(maxNativeAd);
@@ -2790,12 +2791,12 @@ public class NativeAdViewHolder extends RecyclerView.ViewHolder {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });

@@ -71,6 +71,7 @@ import java.util.List;
 
 public class NativeAd {
 
+    @SuppressWarnings("deprecation")
     public static class Builder {
 
         private static final String TAG = "AdNetwork";
@@ -491,7 +492,7 @@ public class NativeAd {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, activity);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxAd != null) {
                                         nativeAdLoader.destroy(maxAd);
@@ -517,14 +518,14 @@ public class NativeAd {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                     loadBackupNativeAd();
                                     Log.d(TAG, "failed to load Max Native Ad with message : " + error.getMessage() + " and error code : " + error.getCode());
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });
@@ -915,7 +916,7 @@ public class NativeAd {
                             nativeAdLoader = new MaxNativeAdLoader(appLovinNativeId, activity);
                             nativeAdLoader.setNativeAdListener(new MaxNativeAdListener() {
                                 @Override
-                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, final MaxAd ad) {
+                                public void onNativeAdLoaded(final MaxNativeAdView nativeAdView, @NonNull final MaxAd ad) {
                                     // Clean up any pre-existing native ad to prevent memory leaks.
                                     if (maxAd != null) {
                                         nativeAdLoader.destroy(maxAd);
@@ -940,12 +941,12 @@ public class NativeAd {
                                 }
 
                                 @Override
-                                public void onNativeAdLoadFailed(final String adUnitId, final MaxError error) {
+                                public void onNativeAdLoadFailed(@NonNull final String adUnitId, @NonNull final MaxError error) {
                                     // We recommend retrying with exponentially higher delays up to a maximum delay
                                 }
 
                                 @Override
-                                public void onNativeAdClicked(final MaxAd ad) {
+                                public void onNativeAdClicked(@NonNull final MaxAd ad) {
                                     // Optional click callback
                                 }
                             });

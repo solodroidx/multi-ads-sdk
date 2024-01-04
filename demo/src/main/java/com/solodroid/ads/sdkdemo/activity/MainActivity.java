@@ -15,10 +15,12 @@ import static com.solodroid.ads.sdkdemo.data.Constant.STYLE_RADIO;
 import static com.solodroid.ads.sdkdemo.data.Constant.STYLE_VIDEO_LARGE;
 import static com.solodroid.ads.sdkdemo.data.Constant.STYLE_VIDEO_SMALL;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,11 +47,10 @@ import com.solodroid.ads.sdk.format.MediumRectangleAd;
 import com.solodroid.ads.sdk.format.NativeAd;
 import com.solodroid.ads.sdk.format.NativeAdView;
 import com.solodroid.ads.sdk.format.RewardedAd;
-import com.solodroid.ads.sdk.format.RewardedVideoAd;
+import com.solodroid.ads.sdk.gdpr.GDPR;
 import com.solodroid.ads.sdk.util.OnRewardedAdCompleteListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdDismissedListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdErrorListener;
-import com.solodroid.ads.sdk.util.OnRewardedAdLoadedListener;
 import com.solodroid.ads.sdkdemo.BuildConfig;
 import com.solodroid.ads.sdkdemo.R;
 import com.solodroid.ads.sdkdemo.data.Constant;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     Toolbar toolbar;
     AdNetwork.Initialize adNetwork;
+    GDPR gdpr;
     BannerAd.Builder bannerAd;
     MediumRectangleAd.Builder mediumRectangleAd;
     InterstitialAd.Builder interstitialAd;
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         bannerAdView.addView(View.inflate(this, R.layout.view_banner_ad, null));
 
         initAds();
+        loadGdpr();
         loadOpenAds();
         loadBannerAd();
         loadInterstitialAd();
@@ -326,7 +329,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        bannerAd.loadBannerAd();
     }
 
     public void getAppTheme() {
@@ -470,6 +472,11 @@ public class MainActivity extends AppCompatActivity {
             appOpenAdBuilder.destroyOpenAd();
             ProcessLifecycleOwner.get().getLifecycle().removeObserver(lifecycleObserver);
         }
+    }
+
+    private void loadGdpr() {
+        gdpr = new GDPR(this);
+        gdpr.updateGDPRConsentStatus(Constant.AD_NETWORK, false, false);
     }
 
 }

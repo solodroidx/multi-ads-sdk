@@ -66,18 +66,18 @@ public class AppOpenAdAppLovin {
         Log.d(LOG_TAG, "Will show ad.");
         appOpenAd.setListener(new MaxAdListener() {
             @Override
-            public void onAdLoaded(MaxAd ad) {
+            public void onAdLoaded(@NonNull MaxAd ad) {
                 isLoadingAd = false;
                 loadTime = (new Date()).getTime();
                 Log.d(LOG_TAG, "onAdLoaded.");
             }
 
             @Override
-            public void onAdDisplayed(MaxAd ad) {
+            public void onAdDisplayed(@NonNull MaxAd ad) {
             }
 
             @Override
-            public void onAdHidden(MaxAd ad) {
+            public void onAdHidden(@NonNull MaxAd ad) {
                 appOpenAd = null;
                 isShowingAd = false;
                 onShowAdCompleteListener.onShowAdComplete();
@@ -86,11 +86,11 @@ public class AppOpenAdAppLovin {
             }
 
             @Override
-            public void onAdClicked(MaxAd ad) {
+            public void onAdClicked(@NonNull MaxAd ad) {
             }
 
             @Override
-            public void onAdLoadFailed(String adUnitId, MaxError error) {
+            public void onAdLoadFailed(@NonNull String adUnitId, @NonNull MaxError error) {
                 isLoadingAd = false;
                 appOpenAd = null;
                 isShowingAd = false;
@@ -99,7 +99,7 @@ public class AppOpenAdAppLovin {
             }
 
             @Override
-            public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+            public void onAdDisplayFailed(@NonNull MaxAd ad, @NonNull MaxError error) {
                 isLoadingAd = false;
                 appOpenAd = null;
                 isShowingAd = false;
@@ -114,31 +114,31 @@ public class AppOpenAdAppLovin {
 
     MaxAdListener maxAdListener = new MaxAdListener() {
         @Override
-        public void onAdLoaded(MaxAd ad) {
+        public void onAdLoaded(@NonNull MaxAd ad) {
             isLoadingAd = false;
             loadTime = (new Date()).getTime();
         }
 
         @Override
-        public void onAdDisplayed(MaxAd ad) {
+        public void onAdDisplayed(@NonNull MaxAd ad) {
         }
 
         @Override
-        public void onAdHidden(MaxAd ad) {
+        public void onAdHidden(@NonNull MaxAd ad) {
             appOpenAd.loadAd();
         }
 
         @Override
-        public void onAdClicked(MaxAd ad) {
+        public void onAdClicked(@NonNull MaxAd ad) {
         }
 
         @Override
-        public void onAdLoadFailed(String adUnitId, MaxError error) {
+        public void onAdLoadFailed(@NonNull String adUnitId, @NonNull MaxError error) {
             isLoadingAd = false;
         }
 
         @Override
-        public void onAdDisplayFailed(MaxAd ad, MaxError error) {
+        public void onAdDisplayFailed(@NonNull MaxAd ad, @NonNull MaxError error) {
             isLoadingAd = false;
             appOpenAd.loadAd();
         }

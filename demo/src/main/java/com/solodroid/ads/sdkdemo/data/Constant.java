@@ -11,7 +11,7 @@ public class Constant {
     public static final String ADMOB_INTERSTITIAL_ID = "ca-app-pub-3940256099942544/1033173712";
     public static final String ADMOB_REWARDED_ID = "ca-app-pub-3940256099942544/5224354917";
     public static final String ADMOB_NATIVE_ID = "ca-app-pub-3940256099942544/2247696110";
-    public static final String ADMOB_APP_OPEN_AD_ID = "ca-app-pub-3940256099942544/3419835294";
+    public static final String ADMOB_APP_OPEN_AD_ID = "ca-app-pub-3940256099942544/9257395921";
 
     public static final String GOOGLE_AD_MANAGER_BANNER_ID = "/6499/example/banner";
     public static final String GOOGLE_AD_MANAGER_INTERSTITIAL_ID = "/6499/example/interstitial";
