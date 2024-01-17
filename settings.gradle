@@ -22,6 +22,12 @@ dependencyResolutionManagement {
         maven {
             url 'https://maven.wortise.com/artifactory/public'
         }
+        maven {
+            url 'https://artifact.bytedance.com/repository/pangle'
+        }
+        maven {
+            url 'https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea'
+        }
     }
 }
 rootProject.name = "MultiAdsSdk"
