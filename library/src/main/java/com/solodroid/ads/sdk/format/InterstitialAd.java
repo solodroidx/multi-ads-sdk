@@ -62,10 +62,6 @@ import com.unity3d.ads.IUnityAdsLoadListener;
 import com.unity3d.ads.IUnityAdsShowListener;
 import com.unity3d.ads.UnityAds;
 import com.unity3d.ads.UnityAdsShowOptions;
-import com.unity3d.mediation.IInterstitialAdLoadListener;
-import com.unity3d.mediation.IInterstitialAdShowListener;
-import com.unity3d.mediation.errors.LoadError;
-import com.unity3d.mediation.errors.ShowError;
 
 import java.util.concurrent.TimeUnit;
 
@@ -479,7 +475,7 @@ public class InterstitialAd {
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad clicks
                             }
 
                             @Override
@@ -489,9 +485,19 @@ public class InterstitialAd {
                             }
 
                             @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
                                 loadBackupInterstitialAd();
                                 Log.d(TAG, "[Wortise] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Your code for handling interstitial ad show failures
+                            }
+
+                            @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+                                // Your code for handling interstitial ad impressions
                             }
 
                             @Override
@@ -501,7 +507,7 @@ public class InterstitialAd {
 
                             @Override
                             public void onInterstitialShown(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad shown events
                             }
                         });
                         wortiseInterstitialAd.loadAd();
@@ -781,7 +787,7 @@ public class InterstitialAd {
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad clicks
                             }
 
                             @Override
@@ -791,8 +797,18 @@ public class InterstitialAd {
                             }
 
                             @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
                                 Log.d(TAG, "[Wortise] [Backup] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Your code for handling interstitial ad show failures
+                            }
+
+                            @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+                                // Your code for handling interstitial ad impressions
                             }
 
                             @Override
@@ -802,7 +818,7 @@ public class InterstitialAd {
 
                             @Override
                             public void onInterstitialShown(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad shown events
                             }
                         });
                         wortiseInterstitialAd.loadAd();
@@ -1313,7 +1329,7 @@ public class InterstitialAd {
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad clicks
                             }
 
                             @Override
@@ -1324,9 +1340,20 @@ public class InterstitialAd {
                             }
 
                             @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
                                 loadBackupInterstitialAd(onInterstitialAdDismissedListener);
                                 Log.d(TAG, "[Wortise] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Your code for handling interstitial ad show failures
+                                // Consider calling onInterstitialAdDismissedListener.onInterstitialAdDismissed() here if you want to treat it as a dismissal
+                            }
+
+                            @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+                                // Your code for handling interstitial ad impressions
                             }
 
                             @Override
@@ -1336,7 +1363,7 @@ public class InterstitialAd {
 
                             @Override
                             public void onInterstitialShown(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad shown events
                             }
                         });
                         wortiseInterstitialAd.loadAd();
@@ -1621,7 +1648,7 @@ public class InterstitialAd {
                         wortiseInterstitialAd.setListener(new com.wortise.ads.interstitial.InterstitialAd.Listener() {
                             @Override
                             public void onInterstitialClicked(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad clicks
                             }
 
                             @Override
@@ -1632,8 +1659,19 @@ public class InterstitialAd {
                             }
 
                             @Override
-                            public void onInterstitialFailed(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onInterstitialFailedToLoad(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
                                 Log.d(TAG, "[Wortise] [Backup] Failed to load Interstitial Ad");
+                            }
+
+                            @Override
+                            public void onInterstitialFailedToShow(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Your code for handling interstitial ad show failures
+                                // Consider calling onInterstitialAdDismissedListener.onInterstitialAdDismissed() here if you want to treat it as a dismissal
+                            }
+
+                            @Override
+                            public void onInterstitialImpression(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
+                                // Your code for handling interstitial ad impressions
                             }
 
                             @Override
@@ -1643,7 +1681,7 @@ public class InterstitialAd {
 
                             @Override
                             public void onInterstitialShown(@NonNull com.wortise.ads.interstitial.InterstitialAd interstitialAd) {
-
+                                // Your code for handling interstitial ad shown events
                             }
                         });
                         wortiseInterstitialAd.loadAd();

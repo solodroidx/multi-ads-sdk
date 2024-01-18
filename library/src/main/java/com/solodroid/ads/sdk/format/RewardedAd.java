@@ -463,7 +463,7 @@ public class RewardedAd {
                         wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
                             @Override
                             public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
+                                // Add your code here to handle ad clicks
                             }
 
                             @Override
@@ -479,7 +479,7 @@ public class RewardedAd {
                             }
 
                             @Override
-                            public void onRewardedFailed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
                                 loadRewardedBackupAd(onComplete, onDismiss);
                                 Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
                             }
@@ -491,7 +491,17 @@ public class RewardedAd {
 
                             @Override
                             public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad display
+                            }
 
+                            @Override
+                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Add your code here to handle ad display failures
+                            }
+
+                            @Override
+                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad impressions
                             }
                         });
                         wortiseRewardedAd.loadAd();
@@ -779,7 +789,7 @@ public class RewardedAd {
                         wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
                             @Override
                             public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
+                                // Add your code here to handle ad clicks
                             }
 
                             @Override
@@ -795,7 +805,7 @@ public class RewardedAd {
                             }
 
                             @Override
-                            public void onRewardedFailed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
                             }
 
@@ -806,7 +816,17 @@ public class RewardedAd {
 
                             @Override
                             public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad display
+                            }
 
+                            @Override
+                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Add your code here to handle ad display failures
+                            }
+
+                            @Override
+                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad impressions
                             }
                         });
                         wortiseRewardedAd.loadAd();

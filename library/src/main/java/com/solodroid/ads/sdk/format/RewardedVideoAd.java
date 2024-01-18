@@ -47,7 +47,6 @@ import com.ironsource.mediationsdk.adunit.adapter.utility.AdInfo;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.model.Placement;
 import com.ironsource.mediationsdk.sdk.LevelPlayRewardedVideoListener;
-import com.ironsource.mediationsdk.sdk.LevelPlayRewardedVideoManualListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdCompleteListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdErrorListener;
 import com.solodroid.ads.sdk.util.OnRewardedAdLoadedListener;
@@ -481,7 +480,7 @@ public class RewardedVideoAd {
                         wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
                             @Override
                             public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
+                                // Add your code here to handle ad clicks
                             }
 
                             @Override
@@ -496,7 +495,7 @@ public class RewardedVideoAd {
                             }
 
                             @Override
-                            public void onRewardedFailed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
                                 loadRewardedBackupAd(onLoaded, onComplete, onError);
                                 Log.d(TAG, "[" + mainAds + "] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
                             }
@@ -513,7 +512,17 @@ public class RewardedVideoAd {
 
                             @Override
                             public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad display
+                            }
 
+                            @Override
+                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Add your code here to handle ad display failures
+                            }
+
+                            @Override
+                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad impressions
                             }
                         });
                         wortiseRewardedAd.loadAd();
@@ -816,7 +825,7 @@ public class RewardedVideoAd {
                         wortiseRewardedAd.setListener(new com.wortise.ads.rewarded.RewardedAd.Listener() {
                             @Override
                             public void onRewardedClicked(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
-
+                                // Add your code here to handle ad clicks
                             }
 
                             @Override
@@ -831,7 +840,7 @@ public class RewardedVideoAd {
                             }
 
                             @Override
-                            public void onRewardedFailed(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                            public void onRewardedFailedToLoad(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
                                 Log.d(TAG, "[" + backupAds + "] [backup] " + "failed to load rewarded ad: " + adError + ", try to load backup ad: " + backupAds);
                             }
 
@@ -847,7 +856,17 @@ public class RewardedVideoAd {
 
                             @Override
                             public void onRewardedShown(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad display
+                            }
 
+                            @Override
+                            public void onRewardedFailedToShow(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd, @NonNull com.wortise.ads.AdError adError) {
+                                // Add your code here to handle ad display failures
+                            }
+
+                            @Override
+                            public void onRewardedImpression(@NonNull com.wortise.ads.rewarded.RewardedAd rewardedAd) {
+                                // Add your code here to handle ad impressions
                             }
                         });
                         wortiseRewardedAd.loadAd();

@@ -76,7 +76,7 @@ public class AppOpenAdWortise {
             }
 
             @Override
-            public void onAppOpenFailed(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
+            public void onAppOpenFailedToLoad(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
                 isLoadingAd = false;
                 wortiseAppOpenAd = null;
                 isShowingAd = false;
@@ -93,7 +93,20 @@ public class AppOpenAdWortise {
 
             @Override
             public void onAppOpenShown(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+                isShowingAd = true;
+                Log.d(LOG_TAG, "onAdShowedFullScreenContent.");
+            }
 
+            @Override
+            public void onAppOpenImpression(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+                // Implementar la lógica para cuando se genera una impresión del anuncio
+                Log.d(LOG_TAG, "onAdImpression.");
+            }
+
+            @Override
+            public void onAppOpenFailedToShow(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
+                // Implementar la lógica para cuando no se puede mostrar el anuncio
+                Log.d(LOG_TAG, "onAdFailedToShowFullScreenContent.");
             }
         });
 
@@ -113,7 +126,7 @@ public class AppOpenAdWortise {
         }
 
         @Override
-        public void onAppOpenFailed(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
+        public void onAppOpenFailedToLoad(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
             isLoadingAd = false;
             wortiseAppOpenAd.loadAd();
         }
@@ -126,7 +139,17 @@ public class AppOpenAdWortise {
 
         @Override
         public void onAppOpenShown(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+            // Implementar la lógica para cuando se muestra el anuncio
+        }
 
+        @Override
+        public void onAppOpenImpression(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
+            // Implementar la lógica para cuando se genera una impresión del anuncio
+        }
+
+        @Override
+        public void onAppOpenFailedToShow(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd, @NonNull com.wortise.ads.AdError adError) {
+            // Implementar la lógica para cuando no se puede mostrar el anuncio
         }
     };
 

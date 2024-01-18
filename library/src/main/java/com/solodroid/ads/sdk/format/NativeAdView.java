@@ -582,7 +582,7 @@ public class NativeAdView {
                                 }
 
                                 @Override
-                                public void onNativeFailed(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
+                                public void onNativeFailedToLoad(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
                                     loadBackupNativeAd();
                                     Log.d(TAG, "Wortise Native Ad failed loaded");
                                 }
@@ -997,7 +997,7 @@ public class NativeAdView {
                                 }
 
                                 @Override
-                                public void onNativeFailed(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
+                                public void onNativeFailedToLoad(@NonNull GoogleNativeAd googleNativeAd, @NonNull com.wortise.ads.AdError adError) {
                                     Log.d(TAG, "[Backup] Wortise Native Ad failed loaded");
                                 }
 

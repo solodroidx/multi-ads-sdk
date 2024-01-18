@@ -518,14 +518,19 @@ public class BannerAd {
                         wortiseBannerAd.setListener(new com.wortise.ads.banner.BannerAd.Listener() {
                             @Override
                             public void onBannerClicked(@NonNull com.wortise.ads.banner.BannerAd bannerAd) {
-
+                                // Existing code for banner click handling
                             }
 
                             @Override
-                            public void onBannerFailed(@NonNull com.wortise.ads.banner.BannerAd bannerAd, @NonNull AdError adError) {
+                            public void onBannerFailedToLoad(@NonNull com.wortise.ads.banner.BannerAd bannerAd, @NonNull AdError adError) {
                                 wortiseBannerView.setVisibility(View.GONE);
                                 loadBackupBannerAd();
                                 Log.d(TAG, "failed to load Wortise banner: " + adError);
+                            }
+
+                            @Override
+                            public void onBannerImpression(@NonNull com.wortise.ads.banner.BannerAd bannerAd) {
+                                // Add code here to handle banner impression events
                             }
 
                             @Override
@@ -877,19 +882,25 @@ public class BannerAd {
                         wortiseBannerAd.setListener(new com.wortise.ads.banner.BannerAd.Listener() {
                             @Override
                             public void onBannerClicked(@NonNull com.wortise.ads.banner.BannerAd bannerAd) {
-
+                                // Existing code for banner click handling
                             }
 
                             @Override
-                            public void onBannerFailed(@NonNull com.wortise.ads.banner.BannerAd bannerAd, @NonNull AdError adError) {
+                            public void onBannerFailedToLoad(@NonNull com.wortise.ads.banner.BannerAd bannerAd, @NonNull AdError adError) {
                                 wortiseBannerView.setVisibility(View.GONE);
-                                Log.d(TAG, " [backup] failed to load Wortise banner: " + adError);
+                                loadBackupBannerAd();
+                                Log.d(TAG, "failed to load Wortise banner: " + adError);
+                            }
+
+                            @Override
+                            public void onBannerImpression(@NonNull com.wortise.ads.banner.BannerAd bannerAd) {
+                                // Add code here to handle banner impression events
                             }
 
                             @Override
                             public void onBannerLoaded(@NonNull com.wortise.ads.banner.BannerAd bannerAd) {
                                 wortiseBannerView.setVisibility(View.VISIBLE);
-                                Log.d(TAG, " [backup] Wortise banner loaded");
+                                Log.d(TAG, "Wortise banner loaded");
                             }
                         });
                         break;
