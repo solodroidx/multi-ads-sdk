@@ -378,7 +378,6 @@ public class AppOpenAd {
 
                                 @Override
                                 public void onAppOpenLoaded(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
-                                    showAppOpenAd(onShowAdCompleteListener);
                                     Log.d(TAG, "[" + adNetwork + "] " + "[on start] app open ad loaded");
                                 }
 
@@ -527,8 +526,6 @@ public class AppOpenAd {
                             @Override
                             public void onAppOpenLoaded(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
                                 isAppOpenAdLoaded = true;
-                                // Mostrar el anuncio aquí
-                                showAppOpenAd();
                                 Log.d(TAG, "[" + adNetwork + "] " + "[on resume] app open ad loaded");
                             }
 
@@ -662,10 +659,6 @@ public class AppOpenAd {
 
                                 @Override
                                 public void onAppOpenLoaded(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
-                                    // Mostrar el anuncio aquí
-                                    showAppOpenAd();
-                                    // Cargar el siguiente anuncio para la próxima vez
-                                    loadAppOpenAd();
                                     Log.d(TAG, "[" + adNetwork + "] " + "[on resume] app open ad loaded");
                                 }
 
@@ -1220,8 +1213,6 @@ public class AppOpenAd {
 
                                 @Override
                                 public void onAppOpenLoaded(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
-                                    // Mostrar el anuncio aquí
-                                    showAppOpenAd();
                                     Log.d(TAG, "[" + backupAdNetwork + "] " + "[on resume] [backup] app open ad loaded");
                                 }
 

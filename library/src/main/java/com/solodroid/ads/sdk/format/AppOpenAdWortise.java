@@ -93,7 +93,6 @@ public class AppOpenAdWortise {
 
             @Override
             public void onAppOpenShown(@NonNull com.wortise.ads.appopen.AppOpenAd appOpenAd) {
-                isShowingAd = true;
                 Log.d(LOG_TAG, "onAdShowedFullScreenContent.");
             }
 
