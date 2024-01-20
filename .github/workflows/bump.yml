@@ -39,3 +39,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
+      - name: Make gradlew executable
+        run: chmod +x gradlew
