@@ -1131,7 +1131,7 @@ public class AppOpenAd {
                             @Override
                             public void onAdFailedToShowFullScreenContent(@NonNull AdError adError) {
                                 appOpenAd = null;
-                                loadBackupAppOpenAd();
+                                loadBackupAppOpenAd()
                                 Log.d(TAG, "[" + backupAdNetwork + "] " + "[on resume] [backup] failed to show app open ad: " + adError.getMessage());
                             }
 
