@@ -1,4 +1,3 @@
-# example 1: on push to master
 name: Bump version
 on:
   push:
@@ -20,4 +19,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         WITH_V: false
-        TAG_NAME: v1.2.5  # ¡Aquí se especifica la versión 1.2.5!
+        TAG_NAME: 'v1.2.5'  # ¡Cambiado a v1.2.5!
